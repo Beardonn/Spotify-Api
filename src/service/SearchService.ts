@@ -1,19 +1,7 @@
 import axios from "axios";
 import { checkAccessToken } from "./LoginService";
+import { IAlbum, IArtist } from "../types/AlbumTypes";
 
-interface IAlbum {
-  id: string;
-  artists: Array<IArtist>;
-  name: string;
-  images: Array<any>;
-  release_date: string;
-  total_tracks: string;
-  album_type: string;
-}
-interface IArtist {
-  id: string;
-  name: string;
-}
 export const getItems = async (querry: string) => {
   const params = new URLSearchParams({
     q: querry,
@@ -36,9 +24,9 @@ export const getItems = async (querry: string) => {
       artists: album.artists,
       name: album.name,
       images: album.images,
-      releaseDate: album.release_date,
-      totalTracks: album.total_tracks,
-      albumType: album.album_type,
+      release_date: album.release_date,
+      total_tracks: album.total_tracks,
+      album_type: album.album_type,
     };
     newAlbum.artists = newAlbum.artists.map((artist) => {
       const newArtist = {
