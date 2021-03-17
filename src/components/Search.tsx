@@ -1,5 +1,6 @@
 import React from "react";
 import { getItems } from "../service/SearchService";
+import "../styles/search.scss";
 
 interface IProps {
   setAlbums: React.Dispatch<React.SetStateAction<any[]>>;
@@ -17,14 +18,17 @@ const Search = ({ setAlbums }: IProps) => {
       setAlbums(albums);
     };
     search();
-  }, [searchValue]);
+  }, [searchValue, setAlbums]);
   return (
-    <div>
-      <label htmlFor='search'>Search Music</label>
+    <div className='search-container'>
+      <label htmlFor='search' className='search-container__label'>
+        Search Music
+      </label>
       <input
         type='text'
         name='search'
         id='search'
+        className='search-container__input'
         onChange={(event) => {
           handleChange(event);
         }}

@@ -1,0 +1,9 @@
+@import './variables.scss';
+html {
+    color: $fontColor;
+    font-family: 'Cabin', sans-serif;
+}
+
+body {
+    background-color: $primaryBackground;
+}

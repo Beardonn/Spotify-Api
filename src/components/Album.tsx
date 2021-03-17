@@ -1,5 +1,6 @@
 import React from "react";
 import { IAlbum } from "../types/AlbumTypes";
+import "../styles/album.scss";
 
 interface IProps {
   album: IAlbum;
@@ -7,18 +8,26 @@ interface IProps {
 
 const Album = ({ album }: IProps) => {
   return (
-    <div>
+    <article className='album-container'>
       <img src={album.images[1].url} alt={album.name} />
-      <h1>{album.name}</h1>
-      <h4>
+      <h1 className='album-container__album-name'>{album.name}</h1>
+      <h4 className='artist-container'>
         {album.artists.map((artist) => {
-          return <span>{artist.name + " "}</span>;
+          return (
+            <span className='artist-container__artist-name'>
+              {artist.name + " "}
+            </span>
+          );
         })}
       </h4>
-      <p>Release Date: {album.release_date}</p>
-      <p>Total tracks: {album.total_tracks}</p>
-      <p>Type: {album.album_type}</p>
-    </div>
+      <p className='album-container__release-date'>
+        Release Date: {album.release_date}
+      </p>
+      <p className='album-container__total-tracks'>
+        Total tracks: {album.total_tracks}
+      </p>
+      <p className='album-container__album-type'>Type: {album.album_type}</p>
+    </article>
   );
 };
 
