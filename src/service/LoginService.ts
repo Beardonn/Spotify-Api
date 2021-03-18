@@ -16,6 +16,7 @@ async function createAccessToken(params: any) {
     "https://accounts.spotify.com/api/token",
     parameters
   );
+  console.log(response);
   const data: IAccessTokenResponseData = response.data;
   const accessToken = data.access_token;
   const expires_at = Date.now() + 1000 * data.expires_in;
@@ -48,3 +49,13 @@ export async function checkAccessToken() {
 
   return tokenSet.access_token;
 }
+export const getUserData = async () => {
+  const token = await checkAccessToken();
+  const response = await axios.get("https://api.spotify.com/v1/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  console.log(response);
+  return response.data.display_name;
+};

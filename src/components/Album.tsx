@@ -9,7 +9,11 @@ interface IProps {
 const Album = ({ album }: IProps) => {
   return (
     <article className='album-container'>
-      <img src={album.images[1].url} alt={album.name} />
+      <img
+        src={album.images[1].url}
+        alt={album.name}
+        className='album-container__image'
+      />
       <h1 className='album-container__album-name'>{album.name}</h1>
       <h4 className='artist-container'>
         {album.artists.map((artist) => {
@@ -21,7 +25,8 @@ const Album = ({ album }: IProps) => {
         })}
       </h4>
       <p className='album-container__release-date'>
-        Release Date: {album.release_date}
+        <span>Release Date: </span>
+        <span> {album.release_date}</span>
       </p>
       <p className='album-container__total-tracks'>
         Total tracks: {album.total_tracks}

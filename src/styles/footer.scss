@@ -1,0 +1,9 @@
+@import './global.scss';
+.footer-container {
+    display: flex;
+    align-items: flex-end;
+    margin: auto auto 10px;
+    &__text {
+        font-size: $smallFontSize;
+    }
+}

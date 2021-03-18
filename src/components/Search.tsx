@@ -17,7 +17,11 @@ const Search = ({ setAlbums }: IProps) => {
       const albums = await getItems(searchValue);
       setAlbums(albums);
     };
-    search();
+    if (searchValue) {
+      search();
+    } else {
+      setAlbums([]);
+    }
   }, [searchValue, setAlbums]);
   return (
     <div className='search-container'>

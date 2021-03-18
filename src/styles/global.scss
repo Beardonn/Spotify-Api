@@ -1,9 +1,16 @@
 @import './variables.scss';
 html {
+    box-sizing: border-box;
     color: $fontColor;
     font-family: 'Cabin', sans-serif;
 }
 
 body {
+    margin: 0;
+    box-sizing: border-box;
     background-color: $primaryBackground;
+}
+
+* {
+    box-sizing: border-box;
 }
