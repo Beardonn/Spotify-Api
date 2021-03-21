@@ -8,7 +8,7 @@ import "../styles/home.scss";
 
 const Home = ({ history }: RouteComponentProps) => {
   useEffect(() => {
-    if (localStorage.getItem("tokenSet")) {
+    if (sessionStorage.getItem("tokenSet")) {
       history.push("/dashboard");
     }
   }, [history]);

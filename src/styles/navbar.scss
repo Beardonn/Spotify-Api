@@ -9,6 +9,8 @@
 
 .logo-container {
     width: 50%;
+    display: flex;
+    align-items: center;
     &__logo {
         color: $fontColor;
     }
@@ -19,6 +21,15 @@
     display: flex;
     width: 50%;
     justify-content: flex-end;
+    &__username {
+        display: flex;
+        align-items: center;
+        margin: 0 20px;
+        padding: 10px;
+        border: 2px solid $primaryBackground;
+        border-radius: 20px;
+        background-color: $primaryBackground;
+    }
     &__button {
         box-sizing: border-box;
         padding: 10px 50px;

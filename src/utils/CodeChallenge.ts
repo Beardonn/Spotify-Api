@@ -7,7 +7,7 @@ export const generateCodeVerifier = () => {
   var array = new Uint32Array(56 / 2);
   window.crypto.getRandomValues(array);
   const codeVerifier = Array.from(array, dec2hex).join("");
-  localStorage.setItem("code_verifier", codeVerifier);
+  sessionStorage.setItem("code_verifier", codeVerifier);
   return codeVerifier;
 };
 
@@ -30,6 +30,6 @@ const base64urlencode = (a: any) => {
 export async function generateCodeChallengeFromVerifier(v: string) {
   var hashed = await sha256(v);
   var base64encoded = base64urlencode(hashed);
-  localStorage.setItem("code_challenge", base64encoded);
+  sessionStorage.setItem("code_challenge", base64encoded);
   return base64encoded;
 }

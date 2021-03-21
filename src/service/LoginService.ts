@@ -21,22 +21,23 @@ async function createAccessToken(params: any) {
   const accessToken = data.access_token;
   const expires_at = Date.now() + 1000 * data.expires_in;
 
-  localStorage.setItem("tokenSet", JSON.stringify({ ...data, expires_at }));
+  sessionStorage.setItem("tokenSet", JSON.stringify({ ...data, expires_at }));
 
   return accessToken;
 }
 export const getAccessToken = async (code: string, url: string) => {
-  const code_verifier = localStorage.getItem("code_verifier");
+  const code_verifier = sessionStorage.getItem("code_verifier");
   const params = new URLSearchParams(code);
-  await createAccessToken({
+  const accessToken = await createAccessToken({
     grant_type: "authorization_code",
     code: params.get("code"),
     redirect_uri: `${url}/redirect`,
     code_verifier: code_verifier,
   });
+  return accessToken;
 };
 export async function checkAccessToken() {
-  let tokenSet = JSON.parse(localStorage.getItem("tokenSet") || "{}");
+  let tokenSet = JSON.parse(sessionStorage.getItem("tokenSet") || "{}");
 
   if (!tokenSet) return;
 
@@ -56,6 +57,6 @@ export const getUserData = async () => {
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log(response);
+  sessionStorage.setItem("userName", response.data.display_name);
   return response.data.display_name;
 };
