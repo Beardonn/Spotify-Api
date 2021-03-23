@@ -1,4 +1,4 @@
-@import './global.scss';
+@import './variables.scss';
 .search-container {
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
         border-radius: 20px;
         border: none;
         padding: 5px 12px;
-        font-size: $hugeFontSize;
+        font-size: $bigFontSize;
         font-family: 'Cabin', sans-serif;
         outline: none;
     }

@@ -20,7 +20,7 @@ const Home = ({ history }: RouteComponentProps) => {
   const handleLogin = async () => {
     const codeVerifier = generateCodeVerifier();
     const codeChallenge = await generateCodeChallengeFromVerifier(codeVerifier);
-    window.location.href = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=code&code_challenge=${codeChallenge}&code_challenge_method=S256`;
+    window.location.href = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=user-read-private%20user-read-email%20user-top-read&response_type=code&code_challenge=${codeChallenge}&code_challenge_method=S256`;
   };
   return (
     <section className='home-container'>

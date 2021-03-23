@@ -57,6 +57,7 @@ export const getUserData = async () => {
       Authorization: `Bearer ${token}`,
     },
   });
+  console.log(response.data);
   sessionStorage.setItem("userName", response.data.display_name);
   return response.data.display_name;
 };

@@ -1,0 +1,51 @@
+@import './variables.scss';
+.top-track-container {
+    box-sizing: border-box;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0 15px 0;
+    border: 2px solid $secondaryColor;
+}
+
+.top-track-index-container {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__index {
+        font-size: 50px;
+    }
+}
+
+.top-track-image-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    &__image {
+        width: inherit;
+    }
+}
+
+.top-track-content-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    &__name {
+        padding: 10px;
+        font-size: 30px;
+    }
+    &__release-date {
+        padding: 10px;
+        font-size: 25px;
+    }
+}
+
+.top-track-content-artists {
+    &__artist {
+        padding: 10px;
+        font-size: 35px;
+    }
+}

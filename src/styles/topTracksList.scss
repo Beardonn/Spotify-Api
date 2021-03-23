@@ -1,0 +1,28 @@
+@import './variables.scss';
+.top-tracks-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.top-tracks-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
+.top-tracks-header {
+    width: 100%;
+    text-align: center;
+}
+
+.top-tracks-buttons {
+    width: 90%;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -16,3 +16,12 @@ export interface IImage {
   url: string;
   width: string;
 }
+export interface ITopTrack {
+  id: string;
+  name: string;
+  images: Array<IImage>;
+  artists: Array<IArtist>;
+  release_date: string;
+  album: IAlbum;
+}
+export type ITopTracks = Array<ITopTrack>;

@@ -14,3 +14,13 @@ body {
 * {
     box-sizing: border-box;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}

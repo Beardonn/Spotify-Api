@@ -21,10 +21,17 @@ export const userReducer = createSlice({
     setAccessToken: (state, action: PayloadAction<string>) => {
       state.accessToken = action.payload;
     },
+    clearUserData: () => {
+      return initialState;
+    },
   },
 });
 
-export const { setUserName, setAccessToken } = userReducer.actions;
+export const {
+  setUserName,
+  setAccessToken,
+  clearUserData,
+} = userReducer.actions;
 export const selectUser = (state: RootState) => state.user.userName;
 
 export default userReducer.reducer;
