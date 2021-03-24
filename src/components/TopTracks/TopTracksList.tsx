@@ -1,13 +1,17 @@
 import React from "react";
 import { getUserTopTracks } from "../../service/UserTracksService";
 import { ITopTracks } from "../../types/AlbumTypes";
+import { useAppSelector } from "../../hooks/hooks";
+import { selectUser } from "../../reducers/userReducer";
 import TopTrack from "./TopTrack";
-import Button from "../elements/button";
+import Button from "../elements/Button";
 import "../../styles/topTracksList.scss";
+import { Redirect } from "react-router";
 
 const TopTracksList = () => {
   const [topTracks, setTopTracks] = React.useState<ITopTracks | null>(null);
   const [term, setTerm] = React.useState<"short" | "medium" | "long">("short");
+  const userName = useAppSelector(selectUser);
   React.useEffect(() => {
     const getTopTracks = async () => {
       const tracks = await getUserTopTracks(term);
@@ -16,17 +20,32 @@ const TopTracksList = () => {
     getTopTracks();
     console.log(topTracks);
   }, [term]);
+  if (!userName) {
+    return <Redirect to='/' />;
+  }
   return (
     <section className='top-tracks-container'>
       <h1 className='top-tracks-header'>Top tracks</h1>
       <article className='top-tracks-buttons'>
-        <Button variant='green' handleClick={() => setTerm("short")}>
+        <Button
+          variant='green'
+          handleClick={() => setTerm("short")}
+          isActive={term === "short"}
+        >
           1 Month
         </Button>
-        <Button variant='green' handleClick={() => setTerm("medium")}>
+        <Button
+          variant='green'
+          handleClick={() => setTerm("medium")}
+          isActive={term === "medium"}
+        >
           6 Months
         </Button>
-        <Button variant='green' handleClick={() => setTerm("long")}>
+        <Button
+          variant='green'
+          handleClick={() => setTerm("long")}
+          isActive={term === "long"}
+        >
           All time
         </Button>
       </article>

@@ -24,4 +24,8 @@
             color: $primaryBackground;
         }
     }
+    &--active {
+        background-color: $fontColor;
+        color: $primaryBackground;
+    }
 }
