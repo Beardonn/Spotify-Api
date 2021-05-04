@@ -7,15 +7,19 @@ import TopTrack from "./TopTrack";
 import Button from "../elements/Button";
 import "../../styles/topTracksList.scss";
 import { Redirect } from "react-router";
+import Loading from "../elements/Loading";
 
 const TopTracksList = () => {
   const [topTracks, setTopTracks] = React.useState<ITopTracks | null>(null);
   const [term, setTerm] = React.useState<"short" | "medium" | "long">("short");
+  const [loading, setLoading] = React.useState<boolean>(true);
   const userName = useAppSelector(selectUser);
   React.useEffect(() => {
     const getTopTracks = async () => {
+      setLoading(true);
       const tracks = await getUserTopTracks(term);
       setTopTracks(tracks);
+      setLoading(false);
     };
     getTopTracks();
     console.log(topTracks);
@@ -49,19 +53,22 @@ const TopTracksList = () => {
           All time
         </Button>
       </article>
-
-      <ul className='top-tracks-list'>
-        {topTracks &&
-          topTracks.map((topTrack, index) => {
-            return (
-              <TopTrack
-                topTrack={topTrack}
-                index={index + 1}
-                key={topTrack.id}
-              />
-            );
-          })}
-      </ul>
+      {loading ? (
+        <Loading />
+      ) : (
+        <ul className='top-tracks-list'>
+          {topTracks &&
+            topTracks.map((topTrack, index) => {
+              return (
+                <TopTrack
+                  topTrack={topTrack}
+                  index={index + 1}
+                  key={topTrack.id}
+                />
+              );
+            })}
+        </ul>
+      )}
     </section>
   );
 };

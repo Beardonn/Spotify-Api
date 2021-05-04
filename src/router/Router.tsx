@@ -6,6 +6,7 @@ import Dashboard from "../components/Dashboard";
 import User from "../components/User";
 import TopTracks from "../components/TopTracks/TopTracksList";
 import PageWrapper from "../components/navbar/PageWrapper";
+import RecommendedList from "../components/RecommendedList";
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ const AppRouter = () => {
             <Route path='/dashboard' component={Dashboard} />
             <Route path='/user' component={User} />
             <Route path='/top-tracks' component={TopTracks} />
+            <Route path='/recommendations' component={RecommendedList} />
             {/* <Route component={NotFoundPage} /> */}
           </Switch>
         </main>

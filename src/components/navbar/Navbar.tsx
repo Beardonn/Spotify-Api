@@ -21,6 +21,11 @@ const Navbar = () => {
       <section className='buttons-container'>
         {userName ? (
           <>
+            <Link to='/recommendations' style={{ display: "contents" }}>
+              <button className='buttons-container__button'>
+                Recommendations
+              </button>
+            </Link>
             <Link to='/top-tracks' style={{ display: "contents" }}>
               <button className='buttons-container__button'>TopTracks</button>
             </Link>

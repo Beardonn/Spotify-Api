@@ -24,7 +24,10 @@ const TopTrack = ({ topTrack, index }: IProps) => {
           <div className='top-track-content-artists'>
             {topTrack.artists.map((artist) => {
               return (
-                <span className='top-track-content-artists__artist'>
+                <span
+                  className='top-track-content-artists__artist'
+                  key={artist.id}
+                >
                   {artist.name}
                 </span>
               );

@@ -25,3 +25,19 @@ export interface ITopTrack {
   album: IAlbum;
 }
 export type ITopTracks = Array<ITopTrack>;
+
+export interface ITrackStatsResponse {
+  id: string;
+  acousticness: string;
+  danceability: string;
+  duration_ms: string;
+  energy: string;
+  instrumentalness: string;
+  key: string;
+  liveness: string;
+  loudness: string;
+  mode: string;
+  speechiness: string;
+  tempo: string;
+  valence: string;
+}
