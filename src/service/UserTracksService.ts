@@ -99,13 +99,13 @@ export const getUserTopTracksStats = async (): Promise<IRecommendationsData> => 
 };
 
 const avgStat = (stat: string, list: Array<any>) => {
-  const lol = list.reduce((acc, curr, currIndex) => {
+  const avg = list.reduce((acc, curr, currIndex) => {
     if (currIndex === list.length - 1) {
       return (acc += curr[stat]) / list.length;
     }
     return (acc += curr[stat]);
   }, 0);
-  return lol;
+  return avg;
 };
 const maxStat = (stat: keyof ITrackStats, list: Array<ITrackStats>) => {
   const maxValue = list.reduce((acc, curr) => {
